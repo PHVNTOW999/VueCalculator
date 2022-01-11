@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Calculator</title>
+</head>
+<body>
+    <div id="app">
+        <h1 class="title">Vue Calculator</h1>
+        <main class="main">
+            <input v-model="input" 
+                   @keyup.enter="result" 
+                   :placeholder="placeholder"
+                   class="input"
+                   disabled />
+            <div @click="clear" class="num clear">C</div>
+            <div @click="result" class="num result">=</div>
+            <div @click="num(7)" class="num">7</div>
+            <div @click="num(8)" class="num">8</div>
+            <div @click="num(9)" class="num">9</div>
+            <div @click="num('*')" class="num oper">*</div>
+            <div @click="num(4)" class="num">4</div>
+            <div @click="num(5)" class="num">5</div>
+            <div @click="num(6)" class="num">6</div>
+            <div @click="num('/')" class="num oper">/</div>
+            <div @click="num(1)" class="num">1</div>
+            <div @click="num(2)" class="num">2</div>
+            <div @click="num(3)" class="num">3</div>
+            <div @click="num('+')" class="num oper">+</div>
+            <div @click="num('-')" class="num minus oper">-</div>
+            <div @click="num(0)" class="num zero">0</div>
+        </main>
+    </div>
+    <style>
+        #app {
+            background-color: rgb(85, 118, 121);
+        }
+        .title {
+            text-align: center;
+            color: #fff;
+        }
+        .main {
+            margin: 0 auto;
+            width: 600px;
+            height: 800px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-gap: 10px;
+        }
+        .input {
+            padding: 0;
+            width: 100%;
+            height: 120px;
+            border: 0;
+            background-color: rgb(9, 68, 70);
+            color: #fff;
+            grid-column-start: 1;
+            grid-column-end: 5;
+        }
+        .num {
+            line-height: 124.79px;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(27, 93, 95);
+            color: #fff;
+        }
+        .zero {
+            grid-column-start: 1;
+            grid-column-end: 4;
+            grid-row-start: 6;
+        }
+        .minus {
+            grid-column-start: 4;
+        }
+        .clear {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+        .result {
+            grid-column-start: 3;
+            grid-column-end: 5;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="App.js"></script>
+</body>
+</html>
