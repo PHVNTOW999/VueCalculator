@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue Calculator</title>
 </head>
+
 <body>
     <div id="app">
         <h1 class="title">Vue Calculator</h1>
         <main class="main">
-            <input v-model="input" 
-                   @keyup.enter="result" 
-                   :placeholder="placeholder"
-                   class="input"
-                   disabled />
-            <div @click="clear" class="num clear">C</div>
-            <div @click="result" class="num result">=</div>
+            <input v-model="input" @keyup.enter="result" :placeholder="placeholder" class="input" disabled />
+            <div @click="clear" class="num clear oper">C</div>
+            <div @click="result" class="num result oper">=</div>
             <div @click="num(7)" class="num">7</div>
             <div @click="num(8)" class="num">8</div>
             <div @click="num(9)" class="num">9</div>
@@ -29,18 +27,34 @@
             <div @click="num(2)" class="num">2</div>
             <div @click="num(3)" class="num">3</div>
             <div @click="num('+')" class="num oper">+</div>
-            <div @click="num('-')" class="num minus oper">-</div>
+            <div @click="num('-')" class="num oper">-</div>
             <div @click="num(0)" class="num zero">0</div>
         </main>
+        <a href="https://github.com/PHVNTOW999" target="_blank">
+            <h1 class="title">My Git</h1>
+        </a>
     </div>
     <style>
-        #app {
+        @import url('https://fonts.googleapis.com/css2?family=Spline+Sans:wght@500&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
             background-color: rgb(85, 118, 121);
+            font-family: 'Spline Sans', sans-serif;
         }
+
         .title {
+            margin: 10px;
+            font-size: 26px;
             text-align: center;
             color: #fff;
         }
+
+        a {
+            text-decoration: none;
+        }
+
         .main {
             margin: 0 auto;
             width: 600px;
@@ -48,38 +62,60 @@
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-            grid-gap: 10px;
         }
+
         .input {
             padding: 0;
             width: 100%;
-            height: 120px;
-            border: 0;
-            background-color: rgb(9, 68, 70);
+            height: 100%;
+            font-size: 30px;
+            border: 1px solid #000;
+            background-color: #12484d;
+            text-align: right;
             color: #fff;
             grid-column-start: 1;
             grid-column-end: 5;
         }
         .num {
-            line-height: 124.79px;
-            text-align: center;
             width: 100%;
             height: 100%;
-            background-color: rgb(27, 93, 95);
+            font-size: 30px;
+            line-height: 124.79px;
+            text-align: center;
+            border: 1px solid #000;
+            transform: scale(1);
+            transition-duration: 0.2s;
+            background-color: #1D5358;
             color: #fff;
         }
+
+        .num:hover {
+            border: 0;
+            transform: scale(0.9);
+            transition-duration: 0.2s;
+            background-color: #266B73;
+        }
+
+        .num:active {
+            background-color: #869c9e;
+        }
+
+        .oper {
+            background-color: #245F6B;
+        }
+
         .zero {
+            max-width: 449px;
             grid-column-start: 1;
             grid-column-end: 4;
             grid-row-start: 6;
-        }
-        .minus {
-            grid-column-start: 4;
+            grid-row-end: 7;
         }
         .clear {
             grid-column-start: 1;
             grid-column-end: 3;
         }
+
         .result {
             grid-column-start: 3;
             grid-column-end: 5;
@@ -88,4 +124,5 @@
     <script src="https://unpkg.com/vue@next"></script>
     <script src="App.js"></script>
 </body>
+
 </html>
