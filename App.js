@@ -1,32 +1,32 @@
 const app = Vue.createApp({
     data() {
         return {
-            input: "",
+            input: 0,
             placeholder: "",
         }
     },
     methods: {
         num(n) {
             this.input += "" + n 
-            console.log(this.input, n)
+            localStorage.setItem("Result", this.input)
         },
         clear() {
             this.input = ""
+            localStorage.setItem("Result", this.input = '')
         },
         result() {
             if(this.input === "") {
                 return
             } else {
                 this.input = eval(this.input)
-                console.log(this.input)
+                localStorage.setItem("Result", this.input)
             }
-            if(this.input == undefined) {
+            if(this.input == undefined || null) {
                 clear()
             }
             if(this.input == SyntaxError || false) {
                 clear()
             }
-            console.log(typeof this.input)
         },
     },
     mounted() {
@@ -36,6 +36,7 @@ const app = Vue.createApp({
             clear()
             console.error(e.name);
         }
+        this.input += localStorage.getItem("Result", this.input)
     },
 })
 
