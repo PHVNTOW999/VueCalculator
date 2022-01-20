@@ -124,22 +124,48 @@
             grid-column-end: 5;
         }
 
-        /* @media (max-width: 520px) {
+        @media (max-width: 1440px) {
             .main {
-                width: 320px;
-                height: 500px;
+                width: 360px;
+                height: 480px;
                 grid-template-columns: 80px 80px 80px 80px;
                 grid-template-rows: 80px 80px 80px 80px 80px 80px;
             }
 
+            .input {
+                font-size: 25px;
+            }
             .num {
-                line-height: 80px;
+                font-size: 25px;
+                line-height: 90px;
             }
 
             .zero {
                 max-width: 239px;
             }
-        } */
+
+        }
+        @media (max-width: 1000px) {
+            .main {
+                width: 240px;
+                height: 355px;
+                grid-template-columns: 60px 60px 60px 60px;
+                grid-template-rows: 60px 60px 60px 60px 60px 60px;
+            }
+
+            .input {
+                font-size: 20px;
+            }
+            .num {
+                font-size: 20px;
+                line-height: 60px;
+            }
+
+            .zero {
+                max-width: 179px;
+            }
+
+        }
     </style>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="App.js"></script>
